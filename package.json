@@ -1,0 +1,25 @@
+{
+  "name": "tscode",
+  "version": "1.0.0",
+  "description": "找回写代码的感觉",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {
+    "playwright": "npm:null@*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haigecao/tscode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haigecao/tscode/issues"
+  },
+  "homepage": "https://github.com/haigecao/tscode#readme"
+}
