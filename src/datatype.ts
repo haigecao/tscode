@@ -23,6 +23,16 @@ let add = (x: number, y: number) => {
   return x + y;
 };
 
+let obj: {
+  a: number;
+  b: string;
+} = { a: 1, b: "2" };
+
+let obj1: object = { a: 1, b: 2 };
+
+obj.a = 2;
+// obj1.a = 3;  // 报错
+
 // 定义一个函数，返回值是 number
 let compute: (x: number, y: number) => number;
 compute = function (x, y) {
