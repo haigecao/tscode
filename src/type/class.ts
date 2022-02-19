@@ -11,16 +11,19 @@ class Dog extends Animal {
 
   public name: string;
 
-  run() {
-    this.eat();
-  }
-
   private pri() {} // 私有成员，只能在 类内调用
 
-  protected pro() {}
+  protected pro() {
+    this.pri();
+  }
 
   sleep(): void {
     console.log("Dog sleep ...");
+  }
+
+  run() {
+    this.eat();
+    this.pro();
   }
 
   static food: string = "bones";
