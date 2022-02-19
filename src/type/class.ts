@@ -67,3 +67,17 @@ class WorkFlow {
 
 let ws = new WorkFlow();
 ws.step1().step2();
+
+class MyFlow extends WorkFlow {
+  constructor() {
+    super();
+  }
+
+  next() {
+    console.log("MyFlow next .");
+    return this;
+  }
+}
+
+let nw = new MyFlow();
+nw.next().step1().next().step2(); // 实现父子 方法的上下文切换
