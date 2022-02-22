@@ -1,5 +1,3 @@
-
-
 // 定义一个函数
 
 function sum(x: number, y: number): number {
@@ -30,7 +28,6 @@ console.log("mySearch", mySearch('12345', '12'));
 
 // 可选参数
 function buildName(lastName: string, firstName?: string) {
-
   if (firstName) {
     return firstName + " " + lastName;
   }
