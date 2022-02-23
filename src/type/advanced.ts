@@ -145,7 +145,8 @@ let cc: 1 | 2 | 3;
 // 对象的联合类型
 function getLang(type: TypeLanguage) {
   let lang = type === TypeLanguage.Java ? new Java() : new JavaScript();
-  lang.lang(); // 被推断为联合类型，就只能访问共有成员
+  lang.lang(); // 被推断为联合类型，类型没确定的情况，就只能访问共有成员
+  // lang.helloJava(); 不能访问
   return lang;
 }
 
@@ -173,7 +174,11 @@ function area(shape: Shape): number {
       return shape.r * shape.r * 3.14;
     case "rectangle":
       return shape.height * shape.width;
+
+    default:
+      console.error("type is error");
+      return 0;
   }
 }
 
-console.log(area({ kind: "square", size: 123 }));
+console.log("area", area({ kind: "square", size: 123 }));
