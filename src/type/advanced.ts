@@ -176,9 +176,36 @@ function area(shape: Shape): number {
       return shape.height * shape.width;
 
     default:
-      console.error("type is error");
+      console.warn("type is error");
       return 0;
   }
 }
 
 console.log("area", area({ kind: "square", size: 123 }));
+
+// 索引类型，通过对象的值建立一个集合！
+let objA = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+function getValues<T, K extends keyof T>(obj: T, keys: K[]): T[K][] {
+  return keys.map((key) => obj[key]);
+}
+
+console.log("getValues", getValues(objA, ["a", "b"]));
+// console.log("getValues", getValues(objA, ["e", "d"])); // 发挥作用，限制了 e、d
+
+// keyof T
+
+interface ObjectTI {
+  a: number;
+  b: string;
+}
+
+let objT: keyof ObjectTI;
+
+// 索引访问操作符 T[k];
+
+// T extends U
