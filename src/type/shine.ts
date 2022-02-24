@@ -29,3 +29,27 @@ type TypeName<T> = T extends string
 type T1 = TypeName<string>;
 type T2 = TypeName<string[]>;
 type T3 = TypeName<string | string[]>;
+
+// T extends U > X : Y; // T 可以赋值给 类型 U，就是 X，否则就是 Y；
+// (A | B) extends U ? X : Y; ==== (A extends U ? X : Y) | (B extends U ? X : Y);
+
+// 可以做类型过滤
+type Diff<T, U> = T extends U ? never : T; // 剔除类型 T 中，跟类型 U 相似的。
+
+type T4 = Diff<"a" | "b" | "c", "a" | "c" | "d">;
+
+type NotNull<T> = Diff<T, undefined | null>;
+type T5 = NotNull<string | number | undefined | null>; // 过滤了 null 和 undefined
+
+// Extract<T, U>   抽取了 T 可以 赋值给 U 的
+type T6 = Extract<"a" | "b" | "c", "a" | "e">; // a
+
+// Exclude<T, U>   抽取了 T 中有，U 中没有的字符
+type T7 = Exclude<"a" | "b" | "c", "a" | "b" | "e">; // c
+
+// ReturnType<T> 获取一个函数返回值的类型
+type T8 = ReturnType<() => string>;
+
+function returnType(str: string): number {
+  return 123;
+}
