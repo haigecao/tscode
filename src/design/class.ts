@@ -26,9 +26,9 @@ class Goods {
   private createTime: Date;
   private price: number = 0;
   private priceLastModifiedTime: Date;
-  private priceLastModifiedUser: string;
+  private priceLastModifiedUser: string = "system";
 
-  constructor(name: string, id: number, price: number) {
+  constructor(name: string, price: number) {
     this.id = counterId.getId();
     this.name = name;
     this.price = price;
@@ -64,3 +64,16 @@ class Goods {
     this.priceLastModifiedTime = new Date();
   }
 }
+
+console.clear();
+
+let apple = new Goods("apple", 12);
+let tea = new Goods("tea", 120);
+
+setTimeout(() => {
+  apple.setPrice(13, "haige");
+  console.info(apple.getLastModifiedMessage());
+}, 1000 * 3);
+
+console.info(apple.getLastModifiedMessage());
+console.log(tea.getGoodsMessage());
