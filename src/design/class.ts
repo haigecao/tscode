@@ -1,5 +1,6 @@
 // OOP
 
+// 封装 + 抽象
 class CounterId {
   private id: number = 0;
   getId() {
@@ -77,3 +78,33 @@ setTimeout(() => {
 
 console.info(apple.getLastModifiedMessage());
 console.log(tea.getGoodsMessage());
+
+// 继承（Inheritance）
+class WorkFlow {
+  up() {
+    console.log("WorkFlow up .");
+    return this;
+  }
+
+  down() {
+    console.log("WorkFlow down .");
+    return this;
+  }
+}
+
+let ws = new WorkFlow();
+ws.up().down();
+
+class MyFlow extends WorkFlow {
+  constructor() {
+    super();
+  }
+
+  next() {
+    console.log("MyFlow next .");
+    return this;
+  }
+}
+
+let nw = new MyFlow();
+nw.next().up().next().down(); // 实现父子 方法的上下文切换

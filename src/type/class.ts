@@ -55,32 +55,32 @@ let husky = new Husky("husky", "red");
 let animals: Animal[] = [dog, husky];
 animals.forEach((item) => item.sleep());
 
-// 方法的链式调用
-class WorkFlow {
-  step1() {
-    console.log("WorkFlow step1 .");
-    return this;
-  }
+// // 方法的链式调用
+// class WorkFlow {
+//   step1() {
+//     console.log("WorkFlow step1 .");
+//     return this;
+//   }
 
-  step2() {
-    console.log("WorkFlow step2 .");
-    return this;
-  }
-}
+//   step2() {
+//     console.log("WorkFlow step2 .");
+//     return this;
+//   }
+// }
 
-let ws = new WorkFlow();
-ws.step1().step2();
+// let ws = new WorkFlow();
+// ws.step1().step2();
 
-class MyFlow extends WorkFlow {
-  constructor() {
-    super();
-  }
+// class MyFlow extends WorkFlow {
+//   constructor() {
+//     super();
+//   }
 
-  next() {
-    console.log("MyFlow next .");
-    return this;
-  }
-}
+//   next() {
+//     console.log("MyFlow next .");
+//     return this;
+//   }
+// }
 
-let nw = new MyFlow();
-nw.next().step1().next().step2(); // 实现父子 方法的上下文切换
+// let nw = new MyFlow();
+// nw.next().step1().next().step2(); // 实现父子 方法的上下文切换
