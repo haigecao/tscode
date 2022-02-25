@@ -49,7 +49,3 @@ type T7 = Exclude<"a" | "b" | "c", "a" | "b" | "e">; // c
 
 // ReturnType<T> 获取一个函数返回值的类型
 type T8 = ReturnType<() => string>;
-
-function returnType(str: string): number {
-  return 123;
-}
