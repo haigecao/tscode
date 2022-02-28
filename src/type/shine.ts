@@ -34,11 +34,11 @@ type T3 = TypeName<string | string[]>;
 // (A | B) extends U ? X : Y; ==== (A extends U ? X : Y) | (B extends U ? X : Y);
 
 // 可以做类型过滤
-type Diff<T, U> = T extends U ? never : T; // 剔除类型 T 中，跟类型 U 相似的。
+type DiffS<T, U> = T extends U ? never : T; // 剔除类型 T 中，跟类型 U 相似的。
 
-type T4 = Diff<"a" | "b" | "c", "a" | "c" | "d">;
+type T4 = DiffS<"a" | "b" | "c", "a" | "c" | "d">;
 
-type NotNull<T> = Diff<T, undefined | null>;
+type NotNull<T> = DiffS<T, undefined | null>;
 type T5 = NotNull<string | number | undefined | null>; // 过滤了 null 和 undefined
 
 // Extract<T, U>   抽取了 T 可以 赋值给 U 的

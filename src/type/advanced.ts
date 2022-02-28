@@ -38,9 +38,9 @@ function haf(handler: Handler) {
   return handler;
 }
 
-let af = (p1: number, p2: number) => {};
-let bf = (p1: number, p2?: number) => {};
-let cf = (...args: number[]) => {};
+let af = (p1: number, p2: number) => { };
+let bf = (p1: number, p2?: number) => { };
+let cf = (...args: number[]) => { };
 
 af = bf;
 cf = af;
@@ -59,8 +59,8 @@ interface Point2D {
   y: number;
 }
 
-let p3d = (point: Point3D) => {};
-let p2d = (point: Point2D) => {};
+let p3d = (point: Point3D) => { };
+let p2d = (point: Point2D) => { };
 
 p3d = p2d;
 // p2d = p3d; // 错误，参数多的，可以接受参数少的赋值；
@@ -78,7 +78,7 @@ class Java {
     console.log("Java ...");
   }
   java: true;
-  lang() {}
+  lang() { }
 }
 
 class JavaScript {
@@ -86,7 +86,7 @@ class JavaScript {
     console.log("javaScript ...");
   }
   javaScript: true;
-  lang() {}
+  lang() { }
 }
 
 // 类型保护方法
@@ -130,8 +130,8 @@ interface B {
 
 // 交叉类型 是 并集
 let pet: A & B = {
-  runA() {},
-  runB() {},
+  runA() { },
+  runB() { },
 };
 
 // 联合类型
@@ -209,3 +209,6 @@ let objT: keyof ObjectTI;
 // 索引访问操作符 T[k];
 
 // T extends U
+type Diff<T, U> = T extends U ? never : T;
+
+type TypeLanguage4 = Diff<'a' | 'b' | 'c', "a" | "e">;
